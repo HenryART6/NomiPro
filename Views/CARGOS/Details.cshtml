@@ -1,0 +1,44 @@
+﻿@model NomiPro.ModelDB.CARGOS
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalles de cargo</h2>
+
+<div>
+  
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+           <label><b>Nombre de cargo</b></label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            <label><b>Estado de cargo</b></label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estado)
+        </dd>
+
+        <dt>
+            <label><b>Valor de cargo</b></label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Valor_cargo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.ID_Cargos }, new { @class = "btn btn-outline-warning" })
+    @Html.ActionLink("Borrar", " Delete", new { id = Model.ID_Cargos }, new { @class = "btn btn-outline-danger waves-effect" })
+    <a href="~/CARGOS/index" class="btn btn-primary waves-effect">Volver atras</a>
+</p>

@@ -1,0 +1,93 @@
+﻿@model NomiPro.ModelDB.NOMINA
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<body>
+    <h2>Borrar informacion de el empleado</h2>
+
+    <h3>¿Esta seguro que desea eliminar este empleado de la lista?</h3>
+    <div>
+        
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Mes)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Mes)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Estado)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Estado)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Subtotal)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Subtotal)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Total)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Total)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CARGOS.Nombre)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CARGOS.Nombre)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CONTROL_PAGO.Mes)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CONTROL_PAGO.Mes)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.EMPLEADOS.Nombre)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.EMPLEADOS.Nombre)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        <input type="submit" value="¡Borrar!" class="btn btn-outline-danger " />
+        <a href="~/NOMINAs/index" class="btn btn-primary waves-effect">Volver atras</a>
+
+    </div>
+        }
+    </div>
+</body>
+</html>

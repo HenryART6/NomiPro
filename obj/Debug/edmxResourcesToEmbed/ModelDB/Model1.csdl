@@ -1,0 +1,422 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="NomiProModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="C__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+    <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+    <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+  </EntityType>
+  <EntityType Name="CARGOS">
+    <Key>
+      <PropertyRef Name="ID_Cargos" />
+    </Key>
+    <Property Name="ID_Cargos" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Estado" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Valor_cargo" Type="Int32" />
+    <NavigationProperty Name="NOMINA" Relationship="Self.FK_ID_CargoN" FromRole="CARGOS" ToRole="NOMINA" />
+    <NavigationProperty Name="EMPLEADOS" Relationship="Self.FK_ID_Cargos" FromRole="CARGOS" ToRole="EMPLEADOS" />
+  </EntityType>
+  <EntityType Name="CONTROL_PAGO">
+    <Key>
+      <PropertyRef Name="ID_Control_Pago" />
+    </Key>
+    <Property Name="ID_Control_Pago" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_EmpleCP" Type="Int32" />
+    <Property Name="Valor_Horas_Extra" Type="Int32" />
+    <Property Name="Valor_Parafiscal" Type="Int32" />
+    <Property Name="Mes" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="NOMINA" Relationship="Self.FK_ID_Control_PagoN" FromRole="CONTROL_PAGO" ToRole="NOMINA" />
+    <NavigationProperty Name="EMPLEADOS" Relationship="Self.FK_ID_EmpleCP" FromRole="CONTROL_PAGO" ToRole="EMPLEADOS" />
+  </EntityType>
+  <EntityType Name="EMPLEADOS">
+    <Key>
+      <PropertyRef Name="ID_Emple" />
+    </Key>
+    <Property Name="ID_Emple" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Apellido" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Correo" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Telefono" Type="Int32" />
+    <Property Name="Tipo_Documento" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Numero_Documento" Type="Int32" />
+    <Property Name="ID_Cargos" Type="Int32" />
+    <Property Name="ID_Vinculacion" Type="Int32" />
+    <Property Name="ID_Horario" Type="Int32" />
+    <Property Name="Estado" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CARGOS" Relationship="Self.FK_ID_Cargos" FromRole="EMPLEADOS" ToRole="CARGOS" />
+    <NavigationProperty Name="CONTROL_PAGO" Relationship="Self.FK_ID_EmpleCP" FromRole="EMPLEADOS" ToRole="CONTROL_PAGO" />
+    <NavigationProperty Name="HETRAXEMPLEADO" Relationship="Self.FK_ID_Emple" FromRole="EMPLEADOS" ToRole="HETRAXEMPLEADO" />
+    <NavigationProperty Name="NOMINA" Relationship="Self.FK_ID_EmpleN" FromRole="EMPLEADOS" ToRole="NOMINA" />
+    <NavigationProperty Name="PARAXEMPLE" Relationship="Self.FK_ID_EmpleP" FromRole="EMPLEADOS" ToRole="PARAXEMPLE" />
+    <NavigationProperty Name="HORARIO" Relationship="Self.FK_ID_Horario" FromRole="EMPLEADOS" ToRole="HORARIO" />
+    <NavigationProperty Name="TIPO_VINCULACION" Relationship="Self.FK_ID_Vinculacion" FromRole="EMPLEADOS" ToRole="TIPO_VINCULACION" />
+  </EntityType>
+  <EntityType Name="HETRAXEMPLEADO">
+    <Key>
+      <PropertyRef Name="ID_HEXE" />
+    </Key>
+    <Property Name="ID_HEXE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_Emple" Type="Int32" />
+    <Property Name="ID_HExtras" Type="Int32" />
+    <Property Name="Numero_Horas" Type="Int32" />
+    <Property Name="Mes" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="EMPLEADOS" Relationship="Self.FK_ID_Emple" FromRole="HETRAXEMPLEADO" ToRole="EMPLEADOS" />
+    <NavigationProperty Name="HORA_EXTRAS" Relationship="Self.FK_HORA_EXTRAS" FromRole="HETRAXEMPLEADO" ToRole="HORA_EXTRAS" />
+  </EntityType>
+  <EntityType Name="HORA_EXTRAS">
+    <Key>
+      <PropertyRef Name="ID_HExtras" />
+    </Key>
+    <Property Name="ID_HExtras" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Valor" Type="Int32" />
+    <Property Name="Estado" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="HETRAXEMPLEADO" Relationship="Self.FK_HORA_EXTRAS" FromRole="HORA_EXTRAS" ToRole="HETRAXEMPLEADO" />
+  </EntityType>
+  <EntityType Name="HORARIO">
+    <Key>
+      <PropertyRef Name="ID_Horario" />
+    </Key>
+    <Property Name="ID_Horario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Tipo_Horario" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Hora_Trabajo" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="EMPLEADOS" Relationship="Self.FK_ID_Horario" FromRole="HORARIO" ToRole="EMPLEADOS" />
+  </EntityType>
+  <EntityType Name="NOMINA">
+    <Key>
+      <PropertyRef Name="ID_Nomina" />
+    </Key>
+    <Property Name="ID_Nomina" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_EmpleN" Type="Int32" />
+    <Property Name="ID_CargoN" Type="Int32" />
+    <Property Name="ID_Control_PagoN" Type="Int32" />
+    <Property Name="Mes" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Estado" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Subtotal" Type="Int32" />
+    <Property Name="Total" Type="Int32" />
+    <NavigationProperty Name="CARGOS" Relationship="Self.FK_ID_CargoN" FromRole="NOMINA" ToRole="CARGOS" />
+    <NavigationProperty Name="CONTROL_PAGO" Relationship="Self.FK_ID_Control_PagoN" FromRole="NOMINA" ToRole="CONTROL_PAGO" />
+    <NavigationProperty Name="EMPLEADOS" Relationship="Self.FK_ID_EmpleN" FromRole="NOMINA" ToRole="EMPLEADOS" />
+  </EntityType>
+  <EntityType Name="PARAFISCALES">
+    <Key>
+      <PropertyRef Name="ID_Parafiscales" />
+    </Key>
+    <Property Name="ID_Parafiscales" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Valor" Type="Int32" />
+    <Property Name="Estado" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="PARAXEMPLE" Relationship="Self.FK_ID_Parafiscales" FromRole="PARAFISCALES" ToRole="PARAXEMPLE" />
+  </EntityType>
+  <EntityType Name="PARAXEMPLE">
+    <Key>
+      <PropertyRef Name="ID_PAEM" />
+    </Key>
+    <Property Name="ID_PAEM" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_Parafiscales" Type="Int32" />
+    <Property Name="ID_EmpleP" Type="Int32" />
+    <Property Name="Mes" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="EMPLEADOS" Relationship="Self.FK_ID_EmpleP" FromRole="PARAXEMPLE" ToRole="EMPLEADOS" />
+    <NavigationProperty Name="PARAFISCALES" Relationship="Self.FK_ID_Parafiscales" FromRole="PARAXEMPLE" ToRole="PARAFISCALES" />
+  </EntityType>
+  <EntityType Name="TIPO_VINCULACION">
+    <Key>
+      <PropertyRef Name="ID_Vinculacion" />
+    </Key>
+    <Property Name="ID_Vinculacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Estado" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="EMPLEADOS" Relationship="Self.FK_ID_Vinculacion" FromRole="TIPO_VINCULACION" ToRole="EMPLEADOS" />
+  </EntityType>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_CargoN">
+    <End Role="CARGOS" Type="Self.CARGOS" Multiplicity="0..1" />
+    <End Role="NOMINA" Type="Self.NOMINA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CARGOS">
+        <PropertyRef Name="ID_Cargos" />
+      </Principal>
+      <Dependent Role="NOMINA">
+        <PropertyRef Name="ID_CargoN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_Cargos">
+    <End Role="CARGOS" Type="Self.CARGOS" Multiplicity="0..1" />
+    <End Role="EMPLEADOS" Type="Self.EMPLEADOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CARGOS">
+        <PropertyRef Name="ID_Cargos" />
+      </Principal>
+      <Dependent Role="EMPLEADOS">
+        <PropertyRef Name="ID_Cargos" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_Control_PagoN">
+    <End Role="CONTROL_PAGO" Type="Self.CONTROL_PAGO" Multiplicity="0..1" />
+    <End Role="NOMINA" Type="Self.NOMINA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CONTROL_PAGO">
+        <PropertyRef Name="ID_Control_Pago" />
+      </Principal>
+      <Dependent Role="NOMINA">
+        <PropertyRef Name="ID_Control_PagoN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_EmpleCP">
+    <End Role="EMPLEADOS" Type="Self.EMPLEADOS" Multiplicity="0..1" />
+    <End Role="CONTROL_PAGO" Type="Self.CONTROL_PAGO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLEADOS">
+        <PropertyRef Name="ID_Emple" />
+      </Principal>
+      <Dependent Role="CONTROL_PAGO">
+        <PropertyRef Name="ID_EmpleCP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_Emple">
+    <End Role="EMPLEADOS" Type="Self.EMPLEADOS" Multiplicity="0..1" />
+    <End Role="HETRAXEMPLEADO" Type="Self.HETRAXEMPLEADO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLEADOS">
+        <PropertyRef Name="ID_Emple" />
+      </Principal>
+      <Dependent Role="HETRAXEMPLEADO">
+        <PropertyRef Name="ID_Emple" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_EmpleN">
+    <End Role="EMPLEADOS" Type="Self.EMPLEADOS" Multiplicity="0..1" />
+    <End Role="NOMINA" Type="Self.NOMINA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLEADOS">
+        <PropertyRef Name="ID_Emple" />
+      </Principal>
+      <Dependent Role="NOMINA">
+        <PropertyRef Name="ID_EmpleN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_EmpleP">
+    <End Role="EMPLEADOS" Type="Self.EMPLEADOS" Multiplicity="0..1" />
+    <End Role="PARAXEMPLE" Type="Self.PARAXEMPLE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLEADOS">
+        <PropertyRef Name="ID_Emple" />
+      </Principal>
+      <Dependent Role="PARAXEMPLE">
+        <PropertyRef Name="ID_EmpleP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_Horario">
+    <End Role="HORARIO" Type="Self.HORARIO" Multiplicity="0..1" />
+    <End Role="EMPLEADOS" Type="Self.EMPLEADOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HORARIO">
+        <PropertyRef Name="ID_Horario" />
+      </Principal>
+      <Dependent Role="EMPLEADOS">
+        <PropertyRef Name="ID_Horario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_Vinculacion">
+    <End Role="TIPO_VINCULACION" Type="Self.TIPO_VINCULACION" Multiplicity="0..1" />
+    <End Role="EMPLEADOS" Type="Self.EMPLEADOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TIPO_VINCULACION">
+        <PropertyRef Name="ID_Vinculacion" />
+      </Principal>
+      <Dependent Role="EMPLEADOS">
+        <PropertyRef Name="ID_Vinculacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HORA_EXTRAS">
+    <End Role="HORA_EXTRAS" Type="Self.HORA_EXTRAS" Multiplicity="0..1" />
+    <End Role="HETRAXEMPLEADO" Type="Self.HETRAXEMPLEADO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HORA_EXTRAS">
+        <PropertyRef Name="ID_HExtras" />
+      </Principal>
+      <Dependent Role="HETRAXEMPLEADO">
+        <PropertyRef Name="ID_HExtras" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_Parafiscales">
+    <End Role="PARAFISCALES" Type="Self.PARAFISCALES" Multiplicity="0..1" />
+    <End Role="PARAXEMPLE" Type="Self.PARAXEMPLE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PARAFISCALES">
+        <PropertyRef Name="ID_Parafiscales" />
+      </Principal>
+      <Dependent Role="PARAXEMPLE">
+        <PropertyRef Name="ID_Parafiscales" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AspNetUserRoles">
+    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="*" />
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="NomiProEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" />
+    <EntitySet Name="CARGOS" EntityType="Self.CARGOS" />
+    <EntitySet Name="CONTROL_PAGO" EntityType="Self.CONTROL_PAGO" />
+    <EntitySet Name="EMPLEADOS" EntityType="Self.EMPLEADOS" />
+    <EntitySet Name="HETRAXEMPLEADO" EntityType="Self.HETRAXEMPLEADO" />
+    <EntitySet Name="HORA_EXTRAS" EntityType="Self.HORA_EXTRAS" />
+    <EntitySet Name="HORARIO" EntityType="Self.HORARIO" />
+    <EntitySet Name="NOMINA" EntityType="Self.NOMINA" />
+    <EntitySet Name="PARAFISCALES" EntityType="Self.PARAFISCALES" />
+    <EntitySet Name="PARAXEMPLE" EntityType="Self.PARAXEMPLE" />
+    <EntitySet Name="TIPO_VINCULACION" EntityType="Self.TIPO_VINCULACION" />
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_CargoN" Association="Self.FK_ID_CargoN">
+      <End Role="CARGOS" EntitySet="CARGOS" />
+      <End Role="NOMINA" EntitySet="NOMINA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_Cargos" Association="Self.FK_ID_Cargos">
+      <End Role="CARGOS" EntitySet="CARGOS" />
+      <End Role="EMPLEADOS" EntitySet="EMPLEADOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_Control_PagoN" Association="Self.FK_ID_Control_PagoN">
+      <End Role="CONTROL_PAGO" EntitySet="CONTROL_PAGO" />
+      <End Role="NOMINA" EntitySet="NOMINA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_EmpleCP" Association="Self.FK_ID_EmpleCP">
+      <End Role="EMPLEADOS" EntitySet="EMPLEADOS" />
+      <End Role="CONTROL_PAGO" EntitySet="CONTROL_PAGO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_Emple" Association="Self.FK_ID_Emple">
+      <End Role="EMPLEADOS" EntitySet="EMPLEADOS" />
+      <End Role="HETRAXEMPLEADO" EntitySet="HETRAXEMPLEADO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_EmpleN" Association="Self.FK_ID_EmpleN">
+      <End Role="EMPLEADOS" EntitySet="EMPLEADOS" />
+      <End Role="NOMINA" EntitySet="NOMINA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_EmpleP" Association="Self.FK_ID_EmpleP">
+      <End Role="EMPLEADOS" EntitySet="EMPLEADOS" />
+      <End Role="PARAXEMPLE" EntitySet="PARAXEMPLE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_Horario" Association="Self.FK_ID_Horario">
+      <End Role="HORARIO" EntitySet="HORARIO" />
+      <End Role="EMPLEADOS" EntitySet="EMPLEADOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_Vinculacion" Association="Self.FK_ID_Vinculacion">
+      <End Role="TIPO_VINCULACION" EntitySet="TIPO_VINCULACION" />
+      <End Role="EMPLEADOS" EntitySet="EMPLEADOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HORA_EXTRAS" Association="Self.FK_HORA_EXTRAS">
+      <End Role="HORA_EXTRAS" EntitySet="HORA_EXTRAS" />
+      <End Role="HETRAXEMPLEADO" EntitySet="HETRAXEMPLEADO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_Parafiscales" Association="Self.FK_ID_Parafiscales">
+      <End Role="PARAFISCALES" EntitySet="PARAFISCALES" />
+      <End Role="PARAXEMPLE" EntitySet="PARAXEMPLE" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

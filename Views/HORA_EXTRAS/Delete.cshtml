@@ -1,0 +1,49 @@
+﻿@model NomiPro.ModelDB.HORA_EXTRAS
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Borrar horas extras</h2>
+
+<h3>¿Esta seguro que desea eliminar este empleado de la lista?</h3>
+<div>
+   
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <label><b>Nombre de horas extras</b></label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+           <label><b>Valor por horas extras</b></label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Valor)
+        </dd>
+
+        <dt>
+            <label><b>Estado por horas extras</b></label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estado)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+<div class="form-actions no-color">
+    <input type="submit" value="¡Borrar!" class="btn btn-outline-danger " />
+    <a href="~/HORA_EXTRAS/index" class="btn btn-primary waves-effect">Volver atras</a>
+</div>
+    }
+</div>

@@ -1,0 +1,40 @@
+﻿@model IEnumerable<NomiPro.ModelDB.HORARIO>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Horarios</h2>
+
+<p>
+    <a href="/HORARIOs/Create" class="btn btn-success"> Crear nuevo </a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            <label><b>Tipo horario</b></label>
+        </th>
+        <th>
+            <label><b>Horas laborales</b></label>
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tipo_Horario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hora_Trabajo)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.ID_Horario }, new { @class = "btn btn-outline-primary waves-effect" })
+            @Html.ActionLink("Detalle", "Details", new { id=item.ID_Horario }, new { @class = "btn btn-outline-warning waves-effect" })
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.ID_Horario }, new { @class = "btn btn-outline-danger waves-effect" })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,101 @@
+﻿@model NomiPro.Models.LoginViewModel
+@{
+    ViewBag.Title = "Iniciar sesión";
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Soluciones informaticas de ayer y hoy">
+    <meta name="author" content="">
+
+    <link rel="shortcut icon" href="~/Content/images/favicon.ico">
+
+    <title>NomiPro</title>
+
+    <!-- App css -->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/icons.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/style.css" rel="stylesheet" type="text/css" />
+
+    <script src="~/Content/modernizr.min.js"></script>
+
+</head>
+
+<body >
+
+    <div style="background:url(https://cronicaglobal.elespanol.com/uploads/s1/65/70/8/internet_de_las_cosas-65708.png") class="account-pages"></div>
+    <div class="clearfix"></div>
+    <div  style="background-color:#2F3E47"  class="wrapper-page rounded">
+        <div class="text-center">
+            <a href="#" class="logo"><span>Nomi<span>Pro</span></span></a>
+            <h5 class="text-muted m-t-0 font-600">Soluciones informaticas para la deduccion de nomina</h5>
+        </div>
+        <div class="m-t-40 card-box">
+            <div class="text-center">
+                <h4 class="text-uppercase font-bold m-b-0">Iniciar sesion</h4>
+            </div>
+            <div class="p-20">
+                @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Email, new { @class = " control-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Password, new { @class = " control-label" })
+                        <div class="col-md-10">
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Iniciar sesión" class="btn btn-primary btn-bordred btn-block  " />
+                        </div>
+                    </div>
+
+                }
+            </div>
+
+        </div>
+
+
+
+        <!-- end card-box-->
+
+        
+
+    </div>
+    <!-- end wrapper page -->
+    <!-- jQuery  -->
+    <script src="~/scripts/jquery.min.js"></script>
+    <script src="~/scripts/popper.min.js"></script>
+    <script src="~/scripts/bootstrap.min.js"></script>
+    <script src="~/scripts/detect.js"></script>
+    <script src="~/scripts/fastclick.js"></script>
+    <script src="~/scripts/jquery.blockUI.js"></script>
+    <script src="~/scripts/waves.js"></script>
+    <script src="~/scripts/jquery.nicescroll.js"></script>
+    <script src="~/scripts/jquery.slimscroll.js"></script>
+    <script src="~/scripts/jquery.scrollTo.min.js"></script>
+
+    <!-- App js -->
+    <script src="~/scripts/jquery.core.js"></script>
+    <script src="~/scripts/jquery.app.js"></script>
+
+</body>
+</html>
+
+

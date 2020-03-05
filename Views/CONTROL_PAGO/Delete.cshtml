@@ -1,0 +1,57 @@
+﻿@model NomiPro.ModelDB.CONTROL_PAGO
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Borrar control de pago</h2>
+
+<h3>¿Esta seguro que desea eliminar este empleado de la lista?</h3>
+<div>
+   
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+           <label><b>Valor de horas extras</b></label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Valor_Horas_Extra)
+        </dd>
+
+        <dt>
+            <label><b>Valor parafiscales</b></label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Valor_Parafiscal)
+        </dd>
+
+        <dt>
+           <label><b>Mes</b></label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mes)
+        </dd>
+
+        <dt>
+           <label><b>Nombre de empelados</b></label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EMPLEADOS.Nombre)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+<div class="form-actions no-color">
+    <input type="submit" value="¡Borrar!" class="btn btn-outline-danger " />
+    <a href="~/CONTROL_PAGO/index" class="btn btn-primary waves-effect">Volver atras</a>
+</div>
+    }
+</div>

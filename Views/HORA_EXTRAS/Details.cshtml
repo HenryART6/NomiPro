@@ -1,0 +1,45 @@
+﻿@model NomiPro.ModelDB.HORA_EXTRAS
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalles de horas extras</h2>
+
+<div>
+   
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+           <label><b>Nombre de horas extras</b></label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            <label><b>Valor de horas extras</b></label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Valor)
+        </dd>
+
+        <dt>
+           <label><b>Estado de horas extas</b></label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estado)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.ID_HExtras }, new { @class = "btn btn-outline-warning" })
+    @Html.ActionLink("Borrar", "Delete", new { id = Model.ID_HExtras }, new { @class = "btn btn-outline-danger waves-effect" })
+    <a href="~/HORAS_EXTRAS/index" class="btn btn-primary waves-effect">Volver atras</a>
+    
+</p>

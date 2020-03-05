@@ -1,0 +1,52 @@
+﻿@model IEnumerable<NomiPro.ModelDB.HETRAXEMPLEADO>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Horas extra por empleado</h2>
+
+<p>
+    <a href="/HETRAXEMPLEADOes/Create" class="btn btn-success"> Crear nuevo </a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            <label><b>Cantidad de horas</b></label>
+        </th>
+        <th>
+            <label><b>Mes</b></label>
+        </th>
+        <th>
+            <label><b>Nombre empleado</b></label>
+        </th>
+        <th>
+            <label><b>Nombre horas extra</b></label>
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Numero_Horas)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Mes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EMPLEADOS.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HORA_EXTRAS.Nombre)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.ID_HEXE }, new { @class = "btn btn-outline-primary waves-effect" })
+            @Html.ActionLink("Detalles", "Details", new { id=item.ID_HEXE }, new { @class = "btn btn-outline-warning waves-effect" })
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.ID_HEXE }, new { @class = "btn btn-outline-danger waves-effect" })
+        </td>
+    </tr>
+}
+
+</table>

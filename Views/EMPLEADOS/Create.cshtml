@@ -1,0 +1,107 @@
+﻿@model NomiPro.ModelDB.EMPLEADOS
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Registrar un nuevo empleado</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4>Ingrese los siguientes datos para registrar un nuevo empleado</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        <label><b>Nombre del empleado</b></label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label><b>Apellido del empleado</b></label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Apellido, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Apellido, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label><b>Correo</b></label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Correo, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Correo, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label><b>Numero telefonico</b></label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Telefono, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Telefono, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label><b>Tipo de documento</b></label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Tipo_Documento, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Tipo_Documento, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label><b>Numero de documento</b></label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Numero_Documento, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Numero_Documento, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label><b>Cargo del empleado</b></label>
+        <div class="col-md-10">
+            @Html.DropDownList("ID_Cargos", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.ID_Cargos, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label><b>Tipo de vinculacion</b></label>
+        <div class="col-md-10">
+            @Html.DropDownList("ID_Vinculacion", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.ID_Vinculacion, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label><b>Horario laboral</b></label>
+        <div class="col-md-10">
+            @Html.DropDownList("ID_Horario", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.ID_Horario, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label><b>Estado de la contratacion</b></label>
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.Estado, NomiPro.helpers.Helpers.ListaEstado(), htmlAttributes : new { @class = "form-control" } )
+            @Html.ValidationMessageFor(model => model.Estado, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <br />
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Crear" class="btn btn-success" />
+            <a href="~/EMPLEADOS/index" class="btn btn-primary waves-effect">Volver atras</a>
+        </div>
+    </div>
+</div>
+}
+
+<br />

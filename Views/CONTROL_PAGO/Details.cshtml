@@ -1,0 +1,53 @@
+﻿@model NomiPro.ModelDB.CONTROL_PAGO
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalles de control de pago</h2>
+
+<div>
+   
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+           <label><b>Valor de horas extras</b></label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Valor_Horas_Extra)
+        </dd>
+
+        <dt>
+           <label><b>Valor parafiscal</b></label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Valor_Parafiscal)
+        </dd>
+
+        <dt>
+           <label><b>Mes</b></label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mes)
+        </dd>
+
+        <dt>
+           <label><b>Nombre de empleado</b></label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EMPLEADOS.Nombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.ID_Control_Pago }, new { @class = "btn btn-outline-warning" })
+    @Html.ActionLink("Borrar", "Delete", new { id = Model.ID_Control_Pago }, new { @class = "btn btn-outline-danger waves-effect" })
+    <a href="~/CONTROL_PAGO/index" class="btn btn-primary waves-effect">Volver atras</a>
+   
+</p>

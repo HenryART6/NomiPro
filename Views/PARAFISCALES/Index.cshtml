@@ -1,0 +1,46 @@
+﻿@model IEnumerable<NomiPro.ModelDB.PARAFISCALES>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Parafiscales</h2>
+
+<p>
+    <a href="/PARAFISCALES/Create" class="btn btn-success"> Crear nuevo </a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            <label><b>Nombre de parafiscales</b></label>
+        </th>
+        <th>
+            <label><b>Valor de parafiscales</b></label>
+        </th>
+        <th>
+            <label><b>Estado</b></label>
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Valor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Estado)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.ID_Parafiscales }, new { @class = "btn btn-outline-primary waves-effect" })
+            @Html.ActionLink("Detalles", "Details", new { id=item.ID_Parafiscales }, new { @class = "btn btn-outline-warning waves-effect" })
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.ID_Parafiscales }, new { @class = "btn btn-outline-danger waves-effect" })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,53 @@
+﻿@model NomiPro.ModelDB.HETRAXEMPLEADO
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalles de horas extras por empleado</h2>
+
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <label><b>Número de horas</b></label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Numero_Horas)
+        </dd>
+
+        <dt>
+           <label><b>Mes</b></label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mes)
+        </dd>
+
+        <dt>
+            <label><b>Nombre de empleado</b></label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EMPLEADOS.Nombre)
+        </dd>
+
+        <dt>
+           <label><b>Nombre de horas extras</b></label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HORA_EXTRAS.Nombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.ID_HEXE}, new { @class = "btn btn-outline-warning" })
+    @Html.ActionLink("Borrar", "Delete", new { id = Model.ID_HEXE }, new { @class = "btn btn-outline-danger waves-effect" })
+    <a href="~/HETRAXEMPLEADOes/index" class="btn btn-primary waves-effect">Volver atras</a>
+  
+</p>

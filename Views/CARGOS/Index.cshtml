@@ -1,0 +1,46 @@
+﻿@model IEnumerable<NomiPro.ModelDB.CARGOS>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Cargos</h2>
+
+<p>
+    <a href="/CARGOS/Create" class="btn btn-success"> Crear nuevo </a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            <label><b>Nombre de cargos</b></label>
+        </th>
+        <th>
+            <label><b>Estado</b></label>
+        </th>
+        <th>
+            <label><b>Valor de cargos</b></label>
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Estado)
+        </td>
+        <td>
+           @NomiPro.helpers.salarios.Convert( @Html.DisplayFor(modelItem => item.Valor_cargo).ToString())
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.ID_Cargos }, new { @class = "btn btn-outline-primary waves-effect" })
+            @Html.ActionLink("Detalles", "Details", new { id=item.ID_Cargos }, new { @class = "btn btn-outline-warning waves-effect" })
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.ID_Cargos }, new { @class = "btn btn-outline-danger waves-effect" })
+        </td>
+    </tr>
+}
+
+</table>

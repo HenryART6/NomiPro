@@ -1,0 +1,45 @@
+﻿@model NomiPro.ModelDB.PARAXEMPLE
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalles de parafiscales por empleados</h2>
+
+<div>
+   
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <label><b>Mes</b></label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mes)
+        </dd>
+
+        <dt>
+           <label><b>Nombre de empleado</b></label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EMPLEADOS.Nombre)
+        </dd>
+
+        <dt>
+           <label><b>Nombre de parafiscales</b></label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PARAFISCALES.Nombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.ID_PAEM }, new { @class = "btn btn-outline-warning" })
+    @Html.ActionLink("Borrar", "Delete", new { id = Model.ID_PAEM }, new { @class = "btn btn-outline-danger waves-effect" })
+    <a href="~/PARAXEMPLEs/index" class="btn btn-primary waves-effect">Volver atras</a>
+  
+</p>

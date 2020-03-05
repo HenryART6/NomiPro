@@ -1,0 +1,41 @@
+﻿@model NomiPro.ModelDB.HORARIO
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Borrar horarios</h2>
+
+<h3>¿Esta seguro que desea eliminar este empleado de la lista?</h3>
+<div>
+   
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+           <label><b>Tipo de horario</b></label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tipo_Horario)
+        </dd>
+
+        <dt>
+            <label><b>Horario laboral</b></label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hora_Trabajo)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+<div class="form-actions no-color">
+    <input type="submit" value="¡Borrar!" class="btn btn-outline-danger " />
+    <a href="~/HORARIOs/index" class="btn btn-primary waves-effect">Volver atras</a>
+</div>
+    }
+</div>

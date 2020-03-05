@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "GestionUsuarios";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Gestion de usuarios y roles</h2>
+
+<h2>
+    @Html.ActionLink("Usuarios", "index", "AspNetUsers")
+</h2>
+
+<h2>
+    @Html.ActionLink("Roles", "index", "AspNetRoles")
+</h2>
+
+<h2>
+    <a href="~/Account/Register" >Ingresar un nuevo usuario</a>
+</h2>

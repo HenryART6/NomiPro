@@ -1,0 +1,49 @@
+﻿@model NomiPro.ModelDB.CARGOS
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Crear cargos</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+       
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+           <label><b>Nombre de cargo</b></label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+           <label><b>Estado de cargo</b></label>
+           <div class="col-md-10">
+               @Html.DropDownListFor(model => model.Estado, NomiPro.helpers.Helpers.ListaEstado(), htmlAttributes: new { @class = "form-control" })
+               @Html.ValidationMessageFor(model => model.Estado, "", new { @class = "text-danger" })
+           </div>
+        </div>
+
+        <div class="form-group">
+           <label><b>Valor de cargo</b></label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Valor_cargo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Valor_cargo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Crear" class="btn btn-success" />
+                <a href="~/CARGOS/index" class="btn btn-primary waves-effect">Volver atras</a>
+            </div>
+        </div>
+    </div>
+}

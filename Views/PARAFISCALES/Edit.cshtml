@@ -1,0 +1,51 @@
+﻿@model NomiPro.ModelDB.PARAFISCALES
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Editar parafiscales</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.ID_Parafiscales)
+
+        <div class="form-group">
+            <label><b>Nombre de parafiscal</b></label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label><b>Valor de parafiscal</b></label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Valor, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Valor, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label><b>Estado</b></label>
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Estado, NomiPro.helpers.Helpers.ListaEstado(), htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Estado, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Guardar" class="btn btn-outline-warning" />
+                <a href="~/PARAFISCALES/index" class="btn btn-primary waves-effect">Volver atras</a>
+            </div>
+        </div>
+    </div>
+}

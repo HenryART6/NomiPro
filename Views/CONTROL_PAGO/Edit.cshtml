@@ -1,0 +1,61 @@
+﻿@model NomiPro.ModelDB.CONTROL_PAGO
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Editar control de pagos</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.ID_Control_Pago)
+
+    <div class="form-group">
+        <label><b>Nombre de empleado</b></label>
+
+        <div class="col-md-10">
+            @Html.DropDownList("ID_EmpleCP", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.ID_EmpleCP, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label><b>Valor de horas extras</b></label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Valor_Horas_Extra, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Valor_Horas_Extra, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+        <div class="form-group">
+            <label><b>Valor de parafiscales</b></label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Valor_Parafiscal, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Valor_Parafiscal, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+           <label><b>Mes</b></label>
+           <div class="col-md-10">
+               @Html.DropDownListFor(model => model.Mes, NomiPro.helpers.Helpers.ListaMes(), htmlAttributes: new { @class = "form-control" })
+               @Html.ValidationMessageFor(model => model.Mes, "", new { @class = "text-danger" })
+           </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Guardar" class="btn btn-outline-warning" />
+                <a href="~/CONTROL_PAGO/index" class="btn btn-primary waves-effect">Volver atras</a>
+            </div>
+        </div>
+    </div>
+}
+

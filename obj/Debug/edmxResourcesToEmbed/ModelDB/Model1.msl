@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="NomiProModelStoreContainer" CdmEntityContainer="NomiProEntities">
+    <EntitySetMapping Name="C__MigrationHistory">
+      <EntityTypeMapping TypeName="NomiProModel.C__MigrationHistory">
+        <MappingFragment StoreEntitySet="__MigrationHistory">
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="NomiProModel.AspNetRoles">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="NomiProModel.AspNetUserClaims">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="NomiProModel.AspNetUserLogins">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="NomiProModel.AspNetUsers">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CARGOS">
+      <EntityTypeMapping TypeName="NomiProModel.CARGOS">
+        <MappingFragment StoreEntitySet="CARGOS">
+          <ScalarProperty Name="ID_Cargos" ColumnName="ID_Cargos" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Valor_cargo" ColumnName="Valor_cargo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CONTROL_PAGO">
+      <EntityTypeMapping TypeName="NomiProModel.CONTROL_PAGO">
+        <MappingFragment StoreEntitySet="CONTROL_PAGO">
+          <ScalarProperty Name="ID_Control_Pago" ColumnName="ID_Control_Pago" />
+          <ScalarProperty Name="ID_EmpleCP" ColumnName="ID_EmpleCP" />
+          <ScalarProperty Name="Valor_Horas_Extra" ColumnName="Valor_Horas_Extra" />
+          <ScalarProperty Name="Valor_Parafiscal" ColumnName="Valor_Parafiscal" />
+          <ScalarProperty Name="Mes" ColumnName="Mes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EMPLEADOS">
+      <EntityTypeMapping TypeName="NomiProModel.EMPLEADOS">
+        <MappingFragment StoreEntitySet="EMPLEADOS">
+          <ScalarProperty Name="ID_Emple" ColumnName="ID_Emple" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Tipo_Documento" ColumnName="Tipo_Documento" />
+          <ScalarProperty Name="Numero_Documento" ColumnName="Numero_Documento" />
+          <ScalarProperty Name="ID_Cargos" ColumnName="ID_Cargos" />
+          <ScalarProperty Name="ID_Vinculacion" ColumnName="ID_Vinculacion" />
+          <ScalarProperty Name="ID_Horario" ColumnName="ID_Horario" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HETRAXEMPLEADO">
+      <EntityTypeMapping TypeName="NomiProModel.HETRAXEMPLEADO">
+        <MappingFragment StoreEntitySet="HETRAXEMPLEADO">
+          <ScalarProperty Name="ID_HEXE" ColumnName="ID_HEXE" />
+          <ScalarProperty Name="ID_Emple" ColumnName="ID_Emple" />
+          <ScalarProperty Name="ID_HExtras" ColumnName="ID_HExtras" />
+          <ScalarProperty Name="Numero_Horas" ColumnName="Numero_Horas" />
+          <ScalarProperty Name="Mes" ColumnName="Mes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HORA_EXTRAS">
+      <EntityTypeMapping TypeName="NomiProModel.HORA_EXTRAS">
+        <MappingFragment StoreEntitySet="HORA_EXTRAS">
+          <ScalarProperty Name="ID_HExtras" ColumnName="ID_HExtras" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Valor" ColumnName="Valor" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HORARIO">
+      <EntityTypeMapping TypeName="NomiProModel.HORARIO">
+        <MappingFragment StoreEntitySet="HORARIO">
+          <ScalarProperty Name="ID_Horario" ColumnName="ID_Horario" />
+          <ScalarProperty Name="Tipo_Horario" ColumnName="Tipo_Horario" />
+          <ScalarProperty Name="Hora_Trabajo" ColumnName="Hora_Trabajo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NOMINA">
+      <EntityTypeMapping TypeName="NomiProModel.NOMINA">
+        <MappingFragment StoreEntitySet="NOMINA">
+          <ScalarProperty Name="ID_Nomina" ColumnName="ID_Nomina" />
+          <ScalarProperty Name="ID_EmpleN" ColumnName="ID_EmpleN" />
+          <ScalarProperty Name="ID_CargoN" ColumnName="ID_CargoN" />
+          <ScalarProperty Name="ID_Control_PagoN" ColumnName="ID_Control_PagoN" />
+          <ScalarProperty Name="Mes" ColumnName="Mes" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Subtotal" ColumnName="Subtotal" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PARAFISCALES">
+      <EntityTypeMapping TypeName="NomiProModel.PARAFISCALES">
+        <MappingFragment StoreEntitySet="PARAFISCALES">
+          <ScalarProperty Name="ID_Parafiscales" ColumnName="ID_Parafiscales" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Valor" ColumnName="Valor" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PARAXEMPLE">
+      <EntityTypeMapping TypeName="NomiProModel.PARAXEMPLE">
+        <MappingFragment StoreEntitySet="PARAXEMPLE">
+          <ScalarProperty Name="ID_PAEM" ColumnName="ID_PAEM" />
+          <ScalarProperty Name="ID_Parafiscales" ColumnName="ID_Parafiscales" />
+          <ScalarProperty Name="ID_EmpleP" ColumnName="ID_EmpleP" />
+          <ScalarProperty Name="Mes" ColumnName="Mes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TIPO_VINCULACION">
+      <EntityTypeMapping TypeName="NomiProModel.TIPO_VINCULACION">
+        <MappingFragment StoreEntitySet="TIPO_VINCULACION">
+          <ScalarProperty Name="ID_Vinculacion" ColumnName="ID_Vinculacion" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles" TypeName="NomiProModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+      <EndProperty Name="AspNetRoles">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+      <EndProperty Name="AspNetUsers">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>
