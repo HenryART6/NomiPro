@@ -1,0 +1,355 @@
+USE [NomiPro]
+GO
+/****** Object:  Table [dbo].[__MigrationHistory]    Script Date: 05/03/2020 18:51:06 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[__MigrationHistory](
+	[MigrationId] [nvarchar](150) NOT NULL,
+	[ContextKey] [nvarchar](300) NOT NULL,
+	[Model] [varbinary](max) NOT NULL,
+	[ProductVersion] [nvarchar](32) NOT NULL,
+ CONSTRAINT [PK_dbo.__MigrationHistory] PRIMARY KEY CLUSTERED 
+(
+	[MigrationId] ASC,
+	[ContextKey] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[AspNetRoles]    Script Date: 05/03/2020 18:51:06 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[AspNetRoles](
+	[Id] [nvarchar](128) NOT NULL,
+	[Name] [nvarchar](256) NOT NULL,
+ CONSTRAINT [PK_dbo.AspNetRoles] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[AspNetUserClaims]    Script Date: 05/03/2020 18:51:06 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[AspNetUserClaims](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[UserId] [nvarchar](128) NOT NULL,
+	[ClaimType] [nvarchar](max) NULL,
+	[ClaimValue] [nvarchar](max) NULL,
+ CONSTRAINT [PK_dbo.AspNetUserClaims] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[AspNetUserLogins]    Script Date: 05/03/2020 18:51:06 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[AspNetUserLogins](
+	[LoginProvider] [nvarchar](128) NOT NULL,
+	[ProviderKey] [nvarchar](128) NOT NULL,
+	[UserId] [nvarchar](128) NOT NULL,
+ CONSTRAINT [PK_dbo.AspNetUserLogins] PRIMARY KEY CLUSTERED 
+(
+	[LoginProvider] ASC,
+	[ProviderKey] ASC,
+	[UserId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[AspNetUserRoles]    Script Date: 05/03/2020 18:51:06 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[AspNetUserRoles](
+	[UserId] [nvarchar](128) NOT NULL,
+	[RoleId] [nvarchar](128) NOT NULL,
+ CONSTRAINT [PK_dbo.AspNetUserRoles] PRIMARY KEY CLUSTERED 
+(
+	[UserId] ASC,
+	[RoleId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[AspNetUsers]    Script Date: 05/03/2020 18:51:06 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[AspNetUsers](
+	[Id] [nvarchar](128) NOT NULL,
+	[Email] [nvarchar](256) NULL,
+	[EmailConfirmed] [bit] NOT NULL,
+	[PasswordHash] [nvarchar](max) NULL,
+	[SecurityStamp] [nvarchar](max) NULL,
+	[PhoneNumber] [nvarchar](max) NULL,
+	[PhoneNumberConfirmed] [bit] NOT NULL,
+	[TwoFactorEnabled] [bit] NOT NULL,
+	[LockoutEndDateUtc] [datetime] NULL,
+	[LockoutEnabled] [bit] NOT NULL,
+	[AccessFailedCount] [int] NOT NULL,
+	[UserName] [nvarchar](256) NOT NULL,
+ CONSTRAINT [PK_dbo.AspNetUsers] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[CARGOS]    Script Date: 05/03/2020 18:51:06 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[CARGOS](
+	[ID_Cargos] [int] IDENTITY(1,1) NOT NULL,
+	[Nombre] [varchar](45) NULL,
+	[Estado] [varchar](45) NULL,
+	[Valor_cargo] [int] NULL,
+ CONSTRAINT [PK_ID_Cargos] PRIMARY KEY CLUSTERED 
+(
+	[ID_Cargos] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[CONTROL_PAGO]    Script Date: 05/03/2020 18:51:06 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[CONTROL_PAGO](
+	[ID_Control_Pago] [int] IDENTITY(1,1) NOT NULL,
+	[ID_EmpleCP] [int] NULL,
+	[Valor_Horas_Extra] [int] NULL,
+	[Valor_Parafiscal] [int] NULL,
+	[Mes] [varchar](45) NULL,
+ CONSTRAINT [PK_ID_Control_Pago] PRIMARY KEY CLUSTERED 
+(
+	[ID_Control_Pago] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[EMPLEADOS]    Script Date: 05/03/2020 18:51:06 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[EMPLEADOS](
+	[ID_Emple] [int] IDENTITY(1,1) NOT NULL,
+	[Nombre] [varchar](45) NULL,
+	[Apellido] [varchar](45) NULL,
+	[Correo] [varchar](45) NULL,
+	[Telefono] [int] NULL,
+	[Tipo_Documento] [varchar](45) NULL,
+	[Numero_Documento] [int] NULL,
+	[ID_Cargos] [int] NULL,
+	[ID_Vinculacion] [int] NULL,
+	[ID_Horario] [int] NULL,
+	[Estado] [varchar](45) NULL,
+ CONSTRAINT [PK_ID_Emple] PRIMARY KEY CLUSTERED 
+(
+	[ID_Emple] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[HETRAXEMPLEADO]    Script Date: 05/03/2020 18:51:06 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[HETRAXEMPLEADO](
+	[ID_HEXE] [int] IDENTITY(1,1) NOT NULL,
+	[ID_Emple] [int] NULL,
+	[ID_HExtras] [int] NULL,
+	[Numero_Horas] [int] NULL,
+	[Mes] [varchar](45) NULL,
+ CONSTRAINT [PK_ID_HEXE] PRIMARY KEY CLUSTERED 
+(
+	[ID_HEXE] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[HORA_EXTRAS]    Script Date: 05/03/2020 18:51:06 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[HORA_EXTRAS](
+	[ID_HExtras] [int] IDENTITY(1,1) NOT NULL,
+	[Nombre] [varchar](45) NULL,
+	[Valor] [int] NULL,
+	[Estado] [varchar](45) NULL,
+ CONSTRAINT [PK_ID_Hextras] PRIMARY KEY CLUSTERED 
+(
+	[ID_HExtras] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[HORARIO]    Script Date: 05/03/2020 18:51:06 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[HORARIO](
+	[ID_Horario] [int] IDENTITY(1,1) NOT NULL,
+	[Tipo_Horario] [varchar](45) NULL,
+	[Hora_Trabajo] [varchar](45) NULL,
+ CONSTRAINT [PK_ID_Horario] PRIMARY KEY CLUSTERED 
+(
+	[ID_Horario] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[NOMINA]    Script Date: 05/03/2020 18:51:06 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[NOMINA](
+	[ID_Nomina] [int] IDENTITY(1,1) NOT NULL,
+	[ID_EmpleN] [int] NULL,
+	[ID_CargoN] [int] NULL,
+	[ID_Control_PagoN] [int] NULL,
+	[Mes] [varchar](45) NULL,
+	[Estado] [varchar](45) NULL,
+	[Subtotal] [int] NULL,
+	[Total] [int] NULL,
+ CONSTRAINT [PK_ID_Nomina] PRIMARY KEY CLUSTERED 
+(
+	[ID_Nomina] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[PARAFISCALES]    Script Date: 05/03/2020 18:51:06 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[PARAFISCALES](
+	[ID_Parafiscales] [int] IDENTITY(1,1) NOT NULL,
+	[Nombre] [varchar](45) NULL,
+	[Valor] [int] NULL,
+	[Estado] [varchar](45) NULL,
+ CONSTRAINT [PK_ID_Parafiscales] PRIMARY KEY CLUSTERED 
+(
+	[ID_Parafiscales] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[PARAXEMPLE]    Script Date: 05/03/2020 18:51:06 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[PARAXEMPLE](
+	[ID_PAEM] [int] IDENTITY(1,1) NOT NULL,
+	[ID_Parafiscales] [int] NULL,
+	[ID_EmpleP] [int] NULL,
+	[Mes] [varchar](45) NULL,
+ CONSTRAINT [PK_ID_PAEM] PRIMARY KEY CLUSTERED 
+(
+	[ID_PAEM] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[TIPO_VINCULACION]    Script Date: 05/03/2020 18:51:06 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[TIPO_VINCULACION](
+	[ID_Vinculacion] [int] IDENTITY(1,1) NOT NULL,
+	[Descripcion] [varchar](45) NULL,
+	[Estado] [varchar](45) NULL,
+ CONSTRAINT [PK_ID_Vinculacion] PRIMARY KEY CLUSTERED 
+(
+	[ID_Vinculacion] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[AspNetUserClaims]  WITH CHECK ADD  CONSTRAINT [FK_dbo.AspNetUserClaims_dbo.AspNetUsers_UserId] FOREIGN KEY([UserId])
+REFERENCES [dbo].[AspNetUsers] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[AspNetUserClaims] CHECK CONSTRAINT [FK_dbo.AspNetUserClaims_dbo.AspNetUsers_UserId]
+GO
+ALTER TABLE [dbo].[AspNetUserLogins]  WITH CHECK ADD  CONSTRAINT [FK_dbo.AspNetUserLogins_dbo.AspNetUsers_UserId] FOREIGN KEY([UserId])
+REFERENCES [dbo].[AspNetUsers] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[AspNetUserLogins] CHECK CONSTRAINT [FK_dbo.AspNetUserLogins_dbo.AspNetUsers_UserId]
+GO
+ALTER TABLE [dbo].[AspNetUserRoles]  WITH CHECK ADD  CONSTRAINT [FK_dbo.AspNetUserRoles_dbo.AspNetRoles_RoleId] FOREIGN KEY([RoleId])
+REFERENCES [dbo].[AspNetRoles] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[AspNetUserRoles] CHECK CONSTRAINT [FK_dbo.AspNetUserRoles_dbo.AspNetRoles_RoleId]
+GO
+ALTER TABLE [dbo].[AspNetUserRoles]  WITH CHECK ADD  CONSTRAINT [FK_dbo.AspNetUserRoles_dbo.AspNetUsers_UserId] FOREIGN KEY([UserId])
+REFERENCES [dbo].[AspNetUsers] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[AspNetUserRoles] CHECK CONSTRAINT [FK_dbo.AspNetUserRoles_dbo.AspNetUsers_UserId]
+GO
+ALTER TABLE [dbo].[CONTROL_PAGO]  WITH CHECK ADD  CONSTRAINT [FK_ID_EmpleCP] FOREIGN KEY([ID_EmpleCP])
+REFERENCES [dbo].[EMPLEADOS] ([ID_Emple])
+GO
+ALTER TABLE [dbo].[CONTROL_PAGO] CHECK CONSTRAINT [FK_ID_EmpleCP]
+GO
+ALTER TABLE [dbo].[EMPLEADOS]  WITH CHECK ADD  CONSTRAINT [FK_ID_Cargos] FOREIGN KEY([ID_Cargos])
+REFERENCES [dbo].[CARGOS] ([ID_Cargos])
+GO
+ALTER TABLE [dbo].[EMPLEADOS] CHECK CONSTRAINT [FK_ID_Cargos]
+GO
+ALTER TABLE [dbo].[EMPLEADOS]  WITH CHECK ADD  CONSTRAINT [FK_ID_Horario] FOREIGN KEY([ID_Horario])
+REFERENCES [dbo].[HORARIO] ([ID_Horario])
+GO
+ALTER TABLE [dbo].[EMPLEADOS] CHECK CONSTRAINT [FK_ID_Horario]
+GO
+ALTER TABLE [dbo].[EMPLEADOS]  WITH CHECK ADD  CONSTRAINT [FK_ID_Vinculacion] FOREIGN KEY([ID_Vinculacion])
+REFERENCES [dbo].[TIPO_VINCULACION] ([ID_Vinculacion])
+GO
+ALTER TABLE [dbo].[EMPLEADOS] CHECK CONSTRAINT [FK_ID_Vinculacion]
+GO
+ALTER TABLE [dbo].[HETRAXEMPLEADO]  WITH CHECK ADD  CONSTRAINT [FK_HORA_EXTRAS] FOREIGN KEY([ID_HExtras])
+REFERENCES [dbo].[HORA_EXTRAS] ([ID_HExtras])
+GO
+ALTER TABLE [dbo].[HETRAXEMPLEADO] CHECK CONSTRAINT [FK_HORA_EXTRAS]
+GO
+ALTER TABLE [dbo].[HETRAXEMPLEADO]  WITH CHECK ADD  CONSTRAINT [FK_ID_Emple] FOREIGN KEY([ID_Emple])
+REFERENCES [dbo].[EMPLEADOS] ([ID_Emple])
+GO
+ALTER TABLE [dbo].[HETRAXEMPLEADO] CHECK CONSTRAINT [FK_ID_Emple]
+GO
+ALTER TABLE [dbo].[NOMINA]  WITH CHECK ADD  CONSTRAINT [FK_ID_CargoN] FOREIGN KEY([ID_CargoN])
+REFERENCES [dbo].[CARGOS] ([ID_Cargos])
+GO
+ALTER TABLE [dbo].[NOMINA] CHECK CONSTRAINT [FK_ID_CargoN]
+GO
+ALTER TABLE [dbo].[NOMINA]  WITH CHECK ADD  CONSTRAINT [FK_ID_Control_PagoN] FOREIGN KEY([ID_Control_PagoN])
+REFERENCES [dbo].[CONTROL_PAGO] ([ID_Control_Pago])
+GO
+ALTER TABLE [dbo].[NOMINA] CHECK CONSTRAINT [FK_ID_Control_PagoN]
+GO
+ALTER TABLE [dbo].[NOMINA]  WITH CHECK ADD  CONSTRAINT [FK_ID_EmpleN] FOREIGN KEY([ID_EmpleN])
+REFERENCES [dbo].[EMPLEADOS] ([ID_Emple])
+GO
+ALTER TABLE [dbo].[NOMINA] CHECK CONSTRAINT [FK_ID_EmpleN]
+GO
+ALTER TABLE [dbo].[PARAXEMPLE]  WITH CHECK ADD  CONSTRAINT [FK_ID_EmpleP] FOREIGN KEY([ID_EmpleP])
+REFERENCES [dbo].[EMPLEADOS] ([ID_Emple])
+GO
+ALTER TABLE [dbo].[PARAXEMPLE] CHECK CONSTRAINT [FK_ID_EmpleP]
+GO
+ALTER TABLE [dbo].[PARAXEMPLE]  WITH CHECK ADD  CONSTRAINT [FK_ID_Parafiscales] FOREIGN KEY([ID_Parafiscales])
+REFERENCES [dbo].[PARAFISCALES] ([ID_Parafiscales])
+GO
+ALTER TABLE [dbo].[PARAXEMPLE] CHECK CONSTRAINT [FK_ID_Parafiscales]
+GO
